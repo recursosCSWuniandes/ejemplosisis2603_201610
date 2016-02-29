@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.cities.service;
+package co.edu.uniandes.rest.servidor.cities.resource;
 
-import co.edu.uniandes.rest.servidor.cities.dtos.CityResource;
+import co.edu.uniandes.rest.servidor.cities.dtos.CityDTO;
 import co.edu.uniandes.rest.servidor.cities.converters.CityConverter;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -26,27 +26,27 @@ import javax.ws.rs.core.MediaType;
  * @author Asistente
  */
 @Path("cities")
-public class Recurso {
+public class CityResource {
 
     @GET
-    public List<CityResource> getCities() {
+    public List<CityDTO> getCities() {
         return CityConverter.getUtil().getCities();
     }
 
     @GET
     @Path("{id: \\d+}")
-    public CityResource getCity(@PathParam("id") Long id) {
+    public CityDTO getCity(@PathParam("id") Long id) {
         return CityConverter.getUtil().getCity(id);
     }
 
     @POST
-    public CityResource createCity(CityResource dto) {
+    public CityDTO createCity(CityDTO dto) {
         return CityConverter.getUtil().createCity(dto);
     }
 
     @PUT
     @Path("{id: \\d+}")
-    public CityResource updateCity(@PathParam("id") Long id, CityResource dto) {
+    public CityDTO updateCity(@PathParam("id") Long id, CityDTO dto) {
         return CityConverter.getUtil().updateCity(id, dto);
     }
 

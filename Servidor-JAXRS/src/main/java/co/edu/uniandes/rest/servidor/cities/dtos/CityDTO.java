@@ -9,7 +9,7 @@ package co.edu.uniandes.rest.servidor.cities.dtos;
  *
  * @author Asistente
  */
-public class CityResource {
+public class CityDTO {
     private Long id;
     private String name;
 
