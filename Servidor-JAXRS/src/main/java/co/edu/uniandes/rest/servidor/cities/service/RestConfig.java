@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.jaxrs.service;
+package co.edu.uniandes.rest.servidor.cities.service;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;

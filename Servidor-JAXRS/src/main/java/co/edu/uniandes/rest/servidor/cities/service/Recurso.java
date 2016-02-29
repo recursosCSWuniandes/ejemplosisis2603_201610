@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.jaxrs.service;
+package co.edu.uniandes.rest.servidor.cities.service;
 
-import co.edu.uniandes.rest.servidor.jaxrs.dtos.CityDTO;
-import co.edu.uniandes.rest.servidor.jaxrs.converters.CityConverter;
+import co.edu.uniandes.rest.servidor.cities.dtos.CityResource;
+import co.edu.uniandes.rest.servidor.cities.converters.CityConverter;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -26,27 +26,27 @@ import javax.ws.rs.core.MediaType;
  * @author Asistente
  */
 @Path("cities")
-public class CityService {
+public class Recurso {
 
     @GET
-    public List<CityDTO> getCities() {
+    public List<CityResource> getCities() {
         return CityConverter.getUtil().getCities();
     }
 
     @GET
     @Path("{id: \\d+}")
-    public CityDTO getCity(@PathParam("id") Long id) {
+    public CityResource getCity(@PathParam("id") Long id) {
         return CityConverter.getUtil().getCity(id);
     }
 
     @POST
-    public CityDTO createCity(CityDTO dto) {
+    public CityResource createCity(CityResource dto) {
         return CityConverter.getUtil().createCity(dto);
     }
 
     @PUT
     @Path("{id: \\d+}")
-    public CityDTO updateCity(@PathParam("id") Long id, CityDTO dto) {
+    public CityResource updateCity(@PathParam("id") Long id, CityResource dto) {
         return CityConverter.getUtil().updateCity(id, dto);
     }
 

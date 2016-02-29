@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.jaxrs.dtos;
+package co.edu.uniandes.rest.servidor.cities.dtos;
 
 /**
  *
  * @author Asistente
  */
-public class CityDTO {
+public class CityResource {
     private Long id;
     private String name;
 

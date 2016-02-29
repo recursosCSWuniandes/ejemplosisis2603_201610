@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.jaxrs.converters;
+package co.edu.uniandes.rest.servidor.cities.converters;
 
 /**
  *
@@ -11,7 +11,7 @@ package co.edu.uniandes.rest.servidor.jaxrs.converters;
  */
 import java.util.ArrayList;
 import java.util.List;
-import co.edu.uniandes.rest.servidor.jaxrs.dtos.CityDTO;
+import co.edu.uniandes.rest.servidor.cities.dtos.CityResource;
 import java.util.Objects;
 /**
  *
@@ -21,7 +21,7 @@ public class CityConverter {
 
     public static CityConverter u;
 
-    public static ArrayList<CityDTO> listCities;
+    public static ArrayList<CityResource> listCities;
 
     public static CityConverter getUtil() {
         if (u == null) {
@@ -32,18 +32,18 @@ public class CityConverter {
         return u;
     }
 
-    public CityDTO createCity(CityDTO myCity) {
+    public CityResource createCity(CityResource myCity) {
         listCities.add(myCity);
         return myCity;
     }
 
-    public List<CityDTO> getCities() {
+    public List<CityResource> getCities() {
         return listCities;
     }
 
-    public CityDTO getCity(Long id){
-        CityDTO myCity = new CityDTO();
-        for (CityDTO listCity : listCities) {
+    public CityResource getCity(Long id){
+        CityResource myCity = new CityResource();
+        for (CityResource listCity : listCities) {
             if (Objects.equals(listCity.getId(), id)){
                 myCity = listCity;
             }
@@ -51,8 +51,8 @@ public class CityConverter {
         return myCity;
     }
 
-    public CityDTO updateCity(Long id, CityDTO dto) {
-        for (CityDTO listCity : listCities) {
+    public CityResource updateCity(Long id, CityResource dto) {
+        for (CityResource listCity : listCities) {
             if (Objects.equals(listCity.getId(), id)) {
                 listCity.setId(dto.getId());
                 listCity.setName(dto.getName());
@@ -62,7 +62,7 @@ public class CityConverter {
     }
 
     public void deleteCity(Long id) {
-        for (CityDTO listCity : listCities) {
+        for (CityResource listCity : listCities) {
             if (Objects.equals(listCity.getId(), id)) {
                 listCities.remove(listCity);
                 break;
