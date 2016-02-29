@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.cities.converters;
+package co.edu.uniandes.rest.cities.mocks;
 
 /**
  *
@@ -11,39 +11,41 @@ package co.edu.uniandes.rest.servidor.cities.converters;
  */
 import java.util.ArrayList;
 import java.util.List;
-import co.edu.uniandes.rest.servidor.cities.dtos.CityDTO;
 import java.util.Objects;
+
+import co.edu.uniandes.rest.cities.dtos.CityDTO;
 /**
  *
  * @author Asistente
  */
-public class CityConverter {
+public class CityLogicMock {
 
-    public static CityConverter u;
+    public static ArrayList<CityDTO> cities;
 
-    public static ArrayList<CityDTO> listCities;
+    public CityLogicMock() {
 
-    public static CityConverter getUtil() {
-        if (u == null) {
-            u = new CityConverter();
-            listCities = new ArrayList<>();
+    	if (cities == null) {
+            cities = new ArrayList<>();
+            cities.add(new CityDTO(1L, "Bogota"));
+            cities.add(new CityDTO(2L, "Cali"));
+            cities.add(new CityDTO(3L, "Medellin"));
         }
-        System.out.println("tamaño: " + listCities.size());
-        return u;
+        System.out.println("tamaño: " + cities.size());
+        
     }
 
     public CityDTO createCity(CityDTO myCity) {
-        listCities.add(myCity);
+        cities.add(myCity);
         return myCity;
     }
 
     public List<CityDTO> getCities() {
-        return listCities;
+        return cities;
     }
 
     public CityDTO getCity(Long id){
         CityDTO myCity = new CityDTO();
-        for (CityDTO listCity : listCities) {
+        for (CityDTO listCity : cities) {
             if (Objects.equals(listCity.getId(), id)){
                 myCity = listCity;
             }
@@ -52,7 +54,7 @@ public class CityConverter {
     }
 
     public CityDTO updateCity(Long id, CityDTO dto) {
-        for (CityDTO listCity : listCities) {
+        for (CityDTO listCity : cities) {
             if (Objects.equals(listCity.getId(), id)) {
                 listCity.setId(dto.getId());
                 listCity.setName(dto.getName());
@@ -62,9 +64,9 @@ public class CityConverter {
     }
 
     public void deleteCity(Long id) {
-        for (CityDTO listCity : listCities) {
+        for (CityDTO listCity : cities) {
             if (Objects.equals(listCity.getId(), id)) {
-                listCities.remove(listCity);
+                cities.remove(listCity);
                 break;
             }
         }
