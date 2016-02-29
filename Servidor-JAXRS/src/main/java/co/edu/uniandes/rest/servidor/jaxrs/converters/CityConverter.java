@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.rest.servidor.jaxrs.util;
+package co.edu.uniandes.rest.servidor.jaxrs.converters;
 
 /**
  *
@@ -11,21 +11,21 @@ package co.edu.uniandes.rest.servidor.jaxrs.util;
  */
 import java.util.ArrayList;
 import java.util.List;
-import co.edu.uniandes.rest.servidor.jaxrs.dto.CityDTO;
+import co.edu.uniandes.rest.servidor.jaxrs.dtos.CityDTO;
 import java.util.Objects;
 /**
  *
  * @author Asistente
  */
-public class Util {
+public class CityConverter {
 
-    public static Util u;
+    public static CityConverter u;
 
     public static ArrayList<CityDTO> listCities;
 
-    public static Util getUtil() {
+    public static CityConverter getUtil() {
         if (u == null) {
-            u = new Util();
+            u = new CityConverter();
             listCities = new ArrayList<>();
         }
         System.out.println("tamaño: " + listCities.size());

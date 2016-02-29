@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.rest.servidor.jaxrs.service;
 
-import co.edu.uniandes.rest.servidor.jaxrs.dto.CityDTO;
-import co.edu.uniandes.rest.servidor.jaxrs.util.Util;
+import co.edu.uniandes.rest.servidor.jaxrs.dtos.CityDTO;
+import co.edu.uniandes.rest.servidor.jaxrs.converters.CityConverter;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -26,34 +26,34 @@ import javax.ws.rs.core.MediaType;
  * @author Asistente
  */
 @Path("cities")
-public class Cities {
+public class CityService {
 
     @GET
     public List<CityDTO> getCities() {
-        return Util.getUtil().getCities();
+        return CityConverter.getUtil().getCities();
     }
 
     @GET
     @Path("{id: \\d+}")
     public CityDTO getCity(@PathParam("id") Long id) {
-        return Util.getUtil().getCity(id);
+        return CityConverter.getUtil().getCity(id);
     }
 
     @POST
     public CityDTO createCity(CityDTO dto) {
-        return Util.getUtil().createCity(dto);
+        return CityConverter.getUtil().createCity(dto);
     }
 
     @PUT
     @Path("{id: \\d+}")
     public CityDTO updateCity(@PathParam("id") Long id, CityDTO dto) {
-        return Util.getUtil().updateCity(id, dto);
+        return CityConverter.getUtil().updateCity(id, dto);
     }
 
     @DELETE
     @Path("{id: \\d+}")
     public void deleteCity(@PathParam("id") Long id) {
-        Util.getUtil().deleteCity(id);
+        CityConverter.getUtil().deleteCity(id);
     }
 
 }
