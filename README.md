@@ -37,7 +37,7 @@ Servidor-JAXRS
 
 | Clase | Descripción |
 | ----- | ----------- |
-| `RestConfig.java` | Indica que la aplicación expone recursos REST. Solo se re	quiere uno en la aplicación. Especifica la ruta `/api` como prefijo para los recursos REST |
+| `RestConfig.java` | Indica que la aplicación expone recursos REST. Solo se requiere uno en la aplicación. Especifica la ruta `/api` como prefijo para los recursos REST |
 | `CityResource.java` | Define el recurso con la ruta `/api/cities`. Contiene métodos para procesar las peticiones GET, POST, PUT y DELETE de acuerdo al API definido |
 | `CityDTO.java` | Define los datos que se transfiere entre el cliente y el servidor. Como se usa como tipo de retorno en los métodos de `CityResource`, JAX-RS convierte automáticamente de JSON a esta clase y de esta clase a JSON.  |
 | `CityLogicMock.java` | Simula un servicio de lógica de negocios. En este ejemplo, el Mock manipula los elementos en una lista de ciudades (Un lista de `CityDTO`). |
