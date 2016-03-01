@@ -25,8 +25,14 @@ Servidor-JAXRS
     ├───co.edu.uniandes.rest.cities.dtos
     │   │   CityDTO.java
     │
-    └───co.edu.uniandes.rest.cities.mocks
-        │   CityLogicMock.java        
+    ├───co.edu.uniandes.rest.cities.mocks
+    │   │   CityLogicMock.java 
+    │
+    ├───co.edu.uniandes.rest.cities.exceptions
+    │   │   CityLogicException.java
+    │
+    └───co.edu.uniandes.rest.cities.converters
+        │   CityLogicExceptionMapper.java        
 ```
 
 | Clase | Descripción |
@@ -35,6 +41,8 @@ Servidor-JAXRS
 | `CityResource.java` | Define el recurso con la ruta `/api/cities`. Contiene métodos para procesar las peticiones GET, POST, PUT y DELETE de acuerdo al API definido |
 | `CityDTO.java` | Define los datos que se transfiere entre el cliente y el servidor. Como se usa como tipo de retorno en los métodos de `CityResource`, JAX-RS convierte automáticamente de JSON a esta clase y de esta clase a JSON.  |
 | `CityLogicMock.java` | Simula un servicio de lógica de negocios. En este ejemplo, el Mock manipula los elementos en una lista de ciudades (Un lista de `CityDTO`). |
+| `CityLogicException.java` | Excepción lanzada por CityLogicMock cuando se genera un error. |
+| `CityLogicExceptionMapper.java` | Convertidor de la excepción `CityLogicException` a mensajes REST. |
 
 
 ## Documentación del API

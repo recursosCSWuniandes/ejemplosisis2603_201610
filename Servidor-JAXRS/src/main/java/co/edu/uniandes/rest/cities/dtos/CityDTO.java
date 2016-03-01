@@ -57,4 +57,12 @@ public class CityDTO {
     public void setName(String name) {
         this.name = name;
     }
+    
+    /**
+     * Convierte el objeto a una cadena
+     */
+    @Override
+    public String toString() {
+    	return "{ id : " + getId() + ", name : \"" + getName() + "\" }" ;  
+    }
 }

@@ -6,10 +6,13 @@
 package co.edu.uniandes.rest.cities.resources;
 
 import co.edu.uniandes.rest.cities.dtos.CityDTO;
+import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
 import co.edu.uniandes.rest.cities.mocks.CityLogicMock;
 
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -31,36 +34,66 @@ import javax.ws.rs.Produces;
  */
 @Path("cities")
 @Produces("application/json")
+@RequestScoped
 public class CityResource {
 
-	// TODO: Cambiar por un @Inject a un servicio real
-	CityLogicMock cityLogic = new CityLogicMock();
-	
+	@Inject
+	CityLogicMock cityLogic; //  = new CityLogicMock();
+
+	/**
+	 * Obtiene el listado de personas. 
+	 * @return lista de ciudades
+	 * @throws CityLogicException excepción retornada por la lógica  
+	 */
     @GET
-    public List<CityDTO> getCities() {
+    public List<CityDTO> getCities() throws CityLogicException {
         return cityLogic.getCities();
     }
 
+    /**
+     * Obtiene una ciudad
+     * @param id identificador de la ciudad
+     * @return ciudad encontrada
+     * @throws CityLogicException cuando la ciudad no existe
+     */
     @GET
     @Path("{id: \\d+}")
-    public CityDTO getCity(@PathParam("id") Long id) {
+    public CityDTO getCity(@PathParam("id") Long id) throws CityLogicException {
         return cityLogic.getCity(id);
     }
 
+    /**
+     * Agrega una ciudad
+     * @param city ciudad a agregar
+     * @return datos de la ciudad a agregar
+     * @throws CityLogicException cuando ya existe una ciudad con el id suministrado
+     */
     @POST
-    public CityDTO createCity(CityDTO dto) {
-        return cityLogic.createCity(dto);
+    public CityDTO createCity(CityDTO city) throws CityLogicException {
+        return cityLogic.createCity(city);
     }
 
+    /**
+     * Actualiza los datos de una ciudad
+     * @param id identificador de la ciudad a modificar
+     * @param city ciudad a modificar
+     * @return datos de la ciudad modificada 
+     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
+     */
     @PUT
     @Path("{id: \\d+}")
-    public CityDTO updateCity(@PathParam("id") Long id, CityDTO dto) {
-        return cityLogic.updateCity(id, dto);
+    public CityDTO updateCity(@PathParam("id") Long id, CityDTO city) throws CityLogicException {
+        return cityLogic.updateCity(id, city);
     }
 
+    /**
+     * Elimina los datos de una ciudad
+     * @param id identificador de la ciudad a eliminar
+     * @throws CityLogicException cuando no existe una ciudad con el id suministrado
+     */
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteCity(@PathParam("id") Long id) {
+    public void deleteCity(@PathParam("id") Long id) throws CityLogicException {
     	cityLogic.deleteCity(id);
     }
 
