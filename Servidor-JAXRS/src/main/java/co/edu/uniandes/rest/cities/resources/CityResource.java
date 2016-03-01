@@ -38,7 +38,7 @@ import javax.ws.rs.Produces;
 public class CityResource {
 
 	@Inject
-	CityLogicMock cityLogic; //  = new CityLogicMock();
+	CityLogicMock cityLogic;
 
 	/**
 	 * Obtiene el listado de personas. 
