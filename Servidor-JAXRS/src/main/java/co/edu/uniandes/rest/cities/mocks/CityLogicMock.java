@@ -15,8 +15,8 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import co.edu.uniandes.rest.cities.dtos.CityDTO;
 import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
@@ -25,7 +25,7 @@ import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
  * Mock del recurso Ciudades (Mock del servicio REST)
  */
 @Named
-@ApplicationScoped
+@Singleton
 public class CityLogicMock {
 	
 	// objeto para presentar logs de las operaciones
