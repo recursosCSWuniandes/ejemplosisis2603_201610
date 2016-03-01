@@ -41,7 +41,7 @@ public class CityResource {
 	CityLogicMock cityLogic;
 
 	/**
-	 * Obtiene el listado de personas. 
+	 * Obtiene el listado de ciudades. 
 	 * @return lista de ciudades
 	 * @throws CityLogicException excepción retornada por la lógica  
 	 */
