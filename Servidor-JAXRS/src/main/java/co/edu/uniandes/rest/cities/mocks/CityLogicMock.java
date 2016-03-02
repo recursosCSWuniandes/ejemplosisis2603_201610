@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.uniandes.rest.cities.mocks;
 
 /**
- *
+ * Mock del recurso Ciudades (Mock del servicio REST)
  * @author Asistente
  */
 import java.util.ArrayList;
@@ -15,8 +10,9 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
-import javax.inject.Singleton;
+
 
 import co.edu.uniandes.rest.cities.dtos.CityDTO;
 import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
@@ -25,14 +21,14 @@ import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
  * Mock del recurso Ciudades (Mock del servicio REST)
  */
 @Named
-@Singleton
+@ApplicationScoped
 public class CityLogicMock {
 	
 	// objeto para presentar logs de las operaciones
 	private final static Logger logger = Logger.getLogger(CityLogicMock.class.getName());
 	
 	// listado de ciudades
-    public static ArrayList<CityDTO> cities;
+    private static ArrayList<CityDTO> cities;
 
     /**
      * Constructor. Crea los datos de ejemplo.

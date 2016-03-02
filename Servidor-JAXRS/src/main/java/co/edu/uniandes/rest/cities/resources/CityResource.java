@@ -11,7 +11,6 @@ import co.edu.uniandes.rest.cities.mocks.CityLogicMock;
 
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -34,7 +33,6 @@ import javax.ws.rs.Produces;
  */
 @Path("cities")
 @Produces("application/json")
-@RequestScoped
 public class CityResource {
 
 	@Inject
