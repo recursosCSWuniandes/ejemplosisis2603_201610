@@ -17,7 +17,8 @@ import javax.inject.Named;
 import co.edu.uniandes.rest.cities.dtos.CityDTO;
 import co.edu.uniandes.rest.cities.exceptions.CityLogicException;
 
-/**
+/*
+ * CityLogicMock
  * Mock del recurso Ciudades (Mock del servicio REST)
  */
 @Named
