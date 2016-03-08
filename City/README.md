@@ -17,7 +17,7 @@ Para entender el código fuente del ejemplo, es necesario revisar los siguientes 
 City
 ?   pom.xml
 ?
-????Cities.logic
+????Cities.web
     ?    pom.xml
     ?
     ????src/main/java
