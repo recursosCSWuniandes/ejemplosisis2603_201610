@@ -1,10 +1,14 @@
-
+// Servicio del módulo City
 (function (ng) {
 
     var mod = ng.module("cityModule");
 
+    // define el servicio cityService
+    // - usa $http para invocar un servicio REST
+    // - usa cityContext para obtener el URL del recurso
     mod.service("cityService", ["$http", "cityContext", function ($http, context) {
-            
+
+            // estos métodos retornan una promesa
             this.fetchRecords = function () {
                 return $http.get(context);
             };

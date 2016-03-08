@@ -1,4 +1,4 @@
-
+// Controlador para el módulo City
 (function (ng) {
 
     var mod = ng.module("cityModule");
@@ -7,6 +7,8 @@
 
             $scope.currentRecord = {};
             $scope.records = [];
+
+            var self = this;
 
             $scope.today = function () {
                 $scope.value = new Date();
@@ -24,21 +26,18 @@
             };
 
             //Alertas para mensajes que se deseen mostrar
-
-
-            var self = this;
             function responseError(response) {
                 self.showError(response.data);
             }
+
             //Variables para el controlador
             this.readOnly = false;
             this.editMode = false;
-            
+
             this.changeTab = function (tab) {
                 $scope.tab = tab;
             };
 
-            
             this.createRecord = function () {
                 $scope.$broadcast("pre-create", $scope.currentRecord);
                 this.editMode = true;
@@ -46,8 +45,14 @@
                 $scope.$broadcast("post-create", $scope.currentRecord);
             };
 
+            // estos métodos utilizan promesas generadas con $http
             this.editRecord = function (record) {
                 $scope.$broadcast("pre-edit", $scope.currentRecord);
+
+                // la promesa se usa con la función then y pasando como
+                // parámetros dos funciones: una cuando la función retorna
+                // sin errores y la otra cuando ocurre una excepción
+                //    promesa.then( cuando_OK, cuando_error );
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
@@ -70,13 +75,14 @@
                     self.fetchRecords();
                 }, responseError);
             };
-            
+
             this.deleteRecord = function (record) {
                 return svc.deleteRecord(record.id).then(function () {
                     self.fetchRecords();
                 }, responseError);
             };
 
+            // al cargar la pantalla en el browser, carga los datos
             this.fetchRecords();
 
         }]);

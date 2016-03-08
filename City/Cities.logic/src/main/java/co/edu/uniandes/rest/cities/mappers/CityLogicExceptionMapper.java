@@ -1,4 +1,4 @@
-package co.edu.uniandes.rest.cities.converters;
+package co.edu.uniandes.rest.cities.mappers;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
