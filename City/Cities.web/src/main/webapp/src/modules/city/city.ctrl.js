@@ -39,15 +39,12 @@
             };
 
             this.createRecord = function () {
-                $scope.$broadcast("pre-create", $scope.currentRecord);
                 this.editMode = true;
                 $scope.currentRecord = {};
-                $scope.$broadcast("post-create", $scope.currentRecord);
             };
 
             // estos métodos utilizan promesas generadas con $http
             this.editRecord = function (record) {
-                $scope.$broadcast("pre-edit", $scope.currentRecord);
 
                 // la promesa se usa con la función then y pasando como
                 // parámetros dos funciones: una cuando la función retorna
@@ -56,9 +53,9 @@
                 return svc.fetchRecord(record.id).then(function (response) {
                     $scope.currentRecord = response.data;
                     self.editMode = true;
-                    $scope.$broadcast("post-edit", $scope.currentRecord);
                     return response;
                 }, responseError);
+
             };
 
             this.fetchRecords = function () {
